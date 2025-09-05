@@ -4,8 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Analytica — Futuristic Analyst Dashboard</title>
+
+  <!-- paste styles.css into CodePen CSS panel or save as styles.css -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Libraries (keep these in HTML or add them in CodePen settings) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
   <div class="app">
@@ -17,13 +23,13 @@
         <a href="#data">Datasets</a>
         <a href="#insights">Insights</a>
       </nav>
-      <div class="ver">v1.2</div>
+      <div class="ver">v1.0</div>
     </aside>
 
     <main class="workspace">
       <header class="topbar">
         <div class="search-area">
-          <input id="search" placeholder="Search KPIs, reports, datasets...">
+          <input id="search" placeholder="Search KPIs, date, region..." />
         </div>
         <div class="actions">
           <button id="btnCSV">Export CSV</button>
@@ -31,7 +37,7 @@
         </div>
       </header>
 
-      <!-- PAGES -->
+      <!-- DASHBOARD -->
       <section id="dashboard" class="page active">
         <div class="hero">
           <div class="hero-left">
@@ -67,33 +73,41 @@
         </div>
       </section>
 
+      <!-- REPORTS -->
       <section id="reports" class="page">
         <h2>Reports</h2>
         <div class="glass report-window" id="reportArea">Select a report and click Generate.</div>
         <div class="controls glass">
-          <select id="reportSelect"><option value="summary">Summary</option><option value="kpis">KPI Trends</option><option value="dataset">Raw Data</option></select>
+          <select id="reportSelect">
+            <option value="summary">Summary</option>
+            <option value="kpis">KPI Trends</option>
+            <option value="dataset">Raw Data</option>
+          </select>
           <button id="genReport">Generate</button>
         </div>
       </section>
 
+      <!-- DATASETS -->
       <section id="data" class="page">
         <h2>Datasets</h2>
         <div class="glass upload">
-          <input type="file" id="fileInput" accept=".csv,.json">
+          <input type="file" id="fileInput" accept=".csv,.json" />
           <button id="loadDemo">Load Demo</button>
         </div>
         <div class="glass data-window" id="dataPreview"></div>
       </section>
 
+      <!-- INSIGHTS -->
       <section id="insights" class="page">
         <h2>Insights</h2>
         <div class="glass" id="insightsWindow">No alerts.</div>
       </section>
 
-      <footer class="footer">© 2025 Analytica — designed for modern analysts</footer>
+      <footer class="footer">© 2025 Analytica — modern analyst UI</footer>
     </main>
   </div>
 
+  <!-- paste app.js into CodePen JS panel or save as app.js -->
   <script src="app.js"></script>
 </body>
 </html>
