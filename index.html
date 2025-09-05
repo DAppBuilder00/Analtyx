@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Analytica — Futuristic Analyst Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">Analytica</div>
+      <nav>
+        <a class="active" href="#dashboard">Dashboard</a>
+        <a href="#reports">Reports</a>
+        <a href="#data">Datasets</a>
+        <a href="#insights">Insights</a>
+      </nav>
+      <div class="ver">v1.2</div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div class="search-area">
+          <input id="search" placeholder="Search KPIs, reports, datasets...">
+        </div>
+        <div class="actions">
+          <button id="btnCSV">Export CSV</button>
+          <button id="btnPDF">Export PDF</button>
+        </div>
+      </header>
+
+      <!-- PAGES -->
+      <section id="dashboard" class="page active">
+        <div class="hero">
+          <div class="hero-left">
+            <div class="glass small">
+              <div class="label">Active Datasets</div>
+              <div class="metric" id="datasetsCount">0</div>
+            </div>
+            <div class="glass small">
+              <div class="label">Total Records</div>
+              <div class="metric" id="recordsCount">0</div>
+            </div>
+            <div class="glass small">
+              <div class="label">Insights</div>
+              <div class="metric" id="insightsCount">0</div>
+            </div>
+          </div>
+
+          <div class="hero-right glass chart-window">
+            <canvas id="mainChart"></canvas>
+          </div>
+        </div>
+
+        <div class="panels">
+          <div class="glass panel">
+            <h3>Top KPIs</h3>
+            <table id="kpiTable"><thead><tr><th>KPI</th><th>Value</th><th>Trend</th></tr></thead><tbody></tbody></table>
+          </div>
+
+          <div class="glass panel">
+            <h3>Recent Activity</h3>
+            <ul id="activity"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="reports" class="page">
+        <h2>Reports</h2>
+        <div class="glass report-window" id="reportArea">Select a report and click Generate.</div>
+        <div class="controls glass">
+          <select id="reportSelect"><option value="summary">Summary</option><option value="kpis">KPI Trends</option><option value="dataset">Raw Data</option></select>
+          <button id="genReport">Generate</button>
+        </div>
+      </section>
+
+      <section id="data" class="page">
+        <h2>Datasets</h2>
+        <div class="glass upload">
+          <input type="file" id="fileInput" accept=".csv,.json">
+          <button id="loadDemo">Load Demo</button>
+        </div>
+        <div class="glass data-window" id="dataPreview"></div>
+      </section>
+
+      <section id="insights" class="page">
+        <h2>Insights</h2>
+        <div class="glass" id="insightsWindow">No alerts.</div>
+      </section>
+
+      <footer class="footer">© 2025 Analytica — designed for modern analysts</footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
